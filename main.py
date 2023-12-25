@@ -23,6 +23,7 @@ class app:
         self.fps = 60
         self.all_sprites = pygame.sprite.Group()
         self.hero = snake(self)
+        self.a = [0, 1, 0, 0]
 
     def terminate(self):
         pygame.quit()
@@ -53,12 +54,40 @@ class app:
                     self.terminate()
             keys = pygame.key.get_pressed()
             if keys[pygame.K_LEFT]:
+                if self.a[0] == 0:
+                    self.hero.image = pygame.transform.rotate(self.hero.image, 0)
+                    self.hero.image = pygame.transform.rotate(self.hero.image, 90)
+                    self.a[0] = 1
+                    self.a[1] = 0
+                    self.a[2] = 0
+                    self.a[3] = 0
                 self.hero.rect.x -= 10
             if keys[pygame.K_RIGHT]:
+                if self.a[2] == 0:
+                    self.hero.image = pygame.transform.rotate(self.hero.image, 0)
+                    self.hero.image = pygame.transform.rotate(self.hero.image, 90)
+                    self.a[0] = 0
+                    self.a[1] = 0
+                    self.a[2] = 1
+                    self.a[3] = 0
                 self.hero.rect.x += 10
             if keys[pygame.K_UP]:
+                if self.a[1] == 0:
+                    self.hero.image = pygame.transform.rotate(self.hero.image, 0)
+                    self.hero.image = pygame.transform.rotate(self.hero.image, 0)
+                    self.a[0] = 0
+                    self.a[1] = 1
+                    self.a[2] = 0
+                    self.a[3] = 0
                 self.hero.rect.y -= 10
             if keys[pygame.K_DOWN]:
+                if self.a[3] == 0:
+                    self.hero.image = pygame.transform.rotate(self.hero.image, 0)
+                    self.hero.image = pygame.transform.rotate(self.hero.image, -180)
+                    self.a[0] = 0
+                    self.a[1] = 0
+                    self.a[2] = 0
+                    self.a[3] = 1
                 self.hero.rect.y += 10
 
 
