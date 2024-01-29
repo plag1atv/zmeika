@@ -2,7 +2,7 @@ import sys, os, pygame, random, math
 import zevs
 
 pygame.init()
-pygame.display.set_caption("Nsnake v1.0")
+pygame.display.set_caption("zmeika")
 pygame.font.init()
 random.seed()
 
@@ -351,6 +351,9 @@ def main():
         mySnake.draw(screen)
         drawHp(hp)
         gameTime = pygame.time.get_ticks() - startTime
+        print(gameTime)
+        if gameTime >= 40000:
+            gameover()
         drawGameTime(gameTime)
         pygame.display.flip()
         pygame.display.update()

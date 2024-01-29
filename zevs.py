@@ -1,7 +1,7 @@
 import sys, os, pygame, random, math
 
 pygame.init()
-pygame.display.set_caption("Nsnake v1.0")
+pygame.display.set_caption("zmeika")
 pygame.font.init()
 random.seed()
 
